@@ -1,12 +1,12 @@
-# GitHub Codespaces ♥️ Django
+<p> **Description** </p>
 
-Welcome to your shiny new Codespace running Django! We've got everything fired up and running for you to explore Django.
+The Resume Builder App is a web application developed using Django, allowing users to create and manage their resumes easily. With this app, users can fill in their personal information, add their education and work experience, and generate professional-looking resumes in various formats.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with what you're seeing right now - where you go from here is up to you!
-
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
-To collect static files:
-
+Features
+User-friendly interface for creating and updating resumes
+Sections for personal information, education, work experience, skills, etc.
+Downloadable resumes in PDF or other formats
+Responsive design 
 ```python
 python manage.py collectstatic
 ```
