@@ -1,4 +1,5 @@
-Description
+<p> **Description** </p>
+
 The Resume Builder App is a web application developed using Django, allowing users to create and manage their resumes easily. With this app, users can fill in their personal information, add their education and work experience, and generate professional-looking resumes in various formats.
 
 Features
