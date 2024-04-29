@@ -26,6 +26,7 @@ urlpatterns = [
     path("resume/", core_views.HomeView.as_view(), name='resume'),  # Moved before "Document/"
     path("upload_document/", core_views.upload_document, name='upload_document'),
     path("uploaded_documents/", core_views.uploaded_documents, name='uploaded_documents'),
+    path("image_upload/",core_views.image_upload,name='image_upload'),
     path("admin/", admin.site.urls),
     path('<int:pk>', core_views.CandidateView.as_view(), name='candidate'),
     path("__reload__/", include("django_browser_reload.urls")),

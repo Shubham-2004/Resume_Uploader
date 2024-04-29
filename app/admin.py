@@ -4,3 +4,6 @@ from .models import Resume
 @admin.register(Resume)
 class ResumeModelAdmin(admin.ModelAdmin):
     list_display = ['id','name','dob','gender','locality','city','pin','state','mobile','email','job_city','profile_image','my_file']
+
+from .models import Image
+admin.site.register(Image)

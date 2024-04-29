@@ -42,3 +42,8 @@ class DocumentForm(forms.ModelForm):
     class Meta:
         model = Document
         fields = ['file_field']
+
+class ImageForm(forms.ModelForm):
+   class Meta:
+      model = Image
+      fields = ("caption","image")

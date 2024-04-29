@@ -57,3 +57,9 @@ class Resume(models.Model):
 
 class Document(models.Model):
     file_field = models.FileField(upload_to='documents',blank=True)
+
+class Image(models.Model):
+    caption = models.CharField(max_length=100)
+    image= models.ImageField(upload_to="img/%y")
+    def __str___(self):
+        return self.caption

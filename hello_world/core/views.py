@@ -57,3 +57,16 @@ def uploaded_documents(request):
     documents = Document.objects.all()
     return render(request, 'uploaded_documents.html', {'documents': documents})
 
+def image_upload(request):
+    if request.method == "POST":
+        form = ImageForm(data=request.POST, files=request.FILES)
+        if form.is_valid():
+            form.save()
+            obj = form.instance
+            return render(request, "image_upload.html", {"obj": obj})
+    else:  # Handle the GET request
+        form = ImageForm()
+    
+    img = Image.objects.all()
+    return render(request, "image_upload.html", {"img": img, "form": form})
+
