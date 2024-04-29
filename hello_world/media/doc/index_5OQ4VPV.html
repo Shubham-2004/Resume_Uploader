@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model API Test</title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.chat-box {
+    height: 300px;
+    overflow-y: scroll;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.user-input {
+    width: calc(100% - 70px);
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.send-button {
+    width: 60px;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.send-button:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="chat-box" id="chat-box"></div>
+        <input type="text" id="user-input" class="user-input" placeholder="Type your message...">
+        <button onclick="sendMessage()" class="send-button">Send</button>
+    </div>
+    <script>
+        async function sendMessage() {
+    const userInput = document.getElementById("user-input").value;
+    const chatBox = document.getElementById("chat-box");
+    const messageElement = document.createElement("div");
+    
+    messageElement.classList.add("message");
+    messageElement.innerHTML = `<strong>You:</strong> ${userInput}`;
+    chatBox.appendChild(messageElement);
+    
+    document.getElementById("user-input").value = "";
+
+    const url = 'https://models3.p.rapidapi.com/?model_id=27&prompt=' + encodeURIComponent(userInput);
+    const options = {
+        method: 'POST',
+        headers: {
+            'content-type': 'application/json',
+            'X-RapidAPI-Key': 'cddc497c61msha056b75bbe92f88p1c3834jsn007efcd6ece0',
+            'X-RapidAPI-Host': 'models3.p.rapidapi.com'
+        },
+        body: JSON.stringify({
+            key1: 'value',
+            key2: 'value'
+        })
+    };
+
+    try {
+        const response = await fetch(url, options);
+        const result = await response.text();
+        const botResponse = JSON.parse(result).some_key; // Replace 'some_key' with the actual key in your response JSON that contains the bot's response
+        const botMessageElement = document.createElement("div");
+        botMessageElement.classList.add("message");
+        botMessageElement.innerHTML = `<strong>Bot:</strong> ${botResponse}`;
+        chatBox.appendChild(botMessageElement);
+        chatBox.scrollTop = chatBox.scrollHeight;
+    } catch (error) {
+        console.error(error);
+    }
+}
+
+    </script>
+</body>
+</html>

@@ -1,5 +1,7 @@
 from django import forms
-from .models import Resume
+from .models import *
+
+
 
 GENDER_CHOICES = [
  ('Male', 'Male'),
@@ -32,3 +34,11 @@ class ResumeForm(forms.ModelForm):
    'mobile':forms.NumberInput(attrs={'class':'form-control'}),
    'email':forms.EmailInput(attrs={'class':'form-control'}),
   }
+
+
+from .models import Document
+
+class DocumentForm(forms.ModelForm):
+    class Meta:
+        model = Document
+        fields = ['file_field']

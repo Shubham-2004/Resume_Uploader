@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sidebar Example</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .sidebar {
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar-nav {
+      padding: 0 10px;
+    }
+
+    .sidebar-nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .sidebar-nav ul li {
+      padding: 10px 0;
+    }
+
+    .sidebar-nav ul li a {
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+
+    .sidebar-nav ul li a:hover {
+      color: #f1f1f1;
+    }
+
+    .open-btn {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .content {
+      margin-left: 200px;
+      padding: 16px;
+      transition: margin-left 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar" id="sidebar">
+    
+    <nav class="sidebar-nav">
+      <ul>
+        <li><a href="{% url 'start' %}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Siksha Ai</a></li>
+        <li><a href="{% url 'resume' %}">Resume Maker</a></li>
+        <li><a href="{% url 'upload_document' %}">Documents Storer</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="content" id="content">
+
+    <!-- Your main content goes here -->
+    <h1>Main Content</h1>
+    <p>This is the main content area.</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      toggleSidebar(); // Open sidebar by default
+    });
+
+    function toggleSidebar() {
+      var sidebar = document.getElementById('sidebar');
+      var content = document.getElementById('content');
+      if (sidebar.style.width === '200px') {
+        sidebar.style.width = '0';
+        content.style.marginLeft = '0';
+      } else {
+        sidebar.style.width = '200px';
+        content.style.marginLeft = '200px';
+      }
+    }
+  </script>
+</body>
+</html>

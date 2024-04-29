@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Your head content here -->
+</head>
+<body>
+    <header>
+        <h1>Uploaded Document</h1>
+    </header>
+    <main>
+        {% if documents %}
+            {% for document in documents %}
+                <div>
+                    <h2>{{ document.file_field.name }}</h2>
+                    <p>File size: {{ document.file_field.size }}</p>
+                    <p>Attachment: <a href="{{ document.file_field.url }}">Download File</a></p>
+                    <!-- Add more details or rendering as needed -->
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No documents uploaded yet.</p>
+        {% endif %}
+    </main>
+    <!-- JavaScript code here -->
+</body>
+</html>
+
